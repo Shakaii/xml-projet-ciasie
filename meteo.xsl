@@ -29,19 +29,59 @@
 <xsl:template match="pluie">
     <xsl:choose>
   	    <xsl:when test=". = 0">
-  		    pas de risque de pluie.
+  		    <img>
+              <xsl:attribute name="src">
+              img/pas_pluie.png
+              </xsl:attribute>
+              <xsl:attribute name="style">
+              width:80
+              </xsl:attribute>
+              pas de risque de pluie.
+            </img>
         </xsl:when>
         <xsl:when test="(. &gt; 0) and (. &lt; 1)">
-            un peu de pluie.
+            <img>
+              <xsl:attribute name="src">
+              img/un_peu_pluie.png
+              </xsl:attribute>
+              <xsl:attribute name="style">
+              width:80
+              </xsl:attribute>
+              un peu de pluie.
+            </img>
         </xsl:when>
         <xsl:when test="(. = 1) or (. &gt; 1) and (. &lt; 2)">
-            pluie moyenne.
+            <img>
+              <xsl:attribute name="src">
+              img/moyen_pluie.png
+              </xsl:attribute>
+              <xsl:attribute name="style">
+              width:80
+              </xsl:attribute>
+              pluie moyenne.
+            </img>
         </xsl:when>
         <xsl:when test="(. = 2) or (. &gt; 2) and (. &lt; 3)">
-            beaucoup de pluie.
+            <img>
+              <xsl:attribute name="src">
+              img/beaucoup_pluie.png
+              </xsl:attribute>
+              <xsl:attribute name="style">
+              width:80
+              </xsl:attribute>
+              beaucoup de pluie.
+            </img>
         </xsl:when>
         <xsl:when test="(. = 3) or (. &gt; 3)">
-            trop de pluie.
+            <img>
+              <xsl:attribute name="src">
+              img/trop.png
+              </xsl:attribute>
+              <xsl:attribute name="style">
+              width:80
+              </xsl:attribute>
+              trop de pluie.
+            </img>
         </xsl:when>
   	    <xsl:otherwise>
   		    pas de données de pluie.
