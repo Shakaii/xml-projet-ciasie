@@ -7,6 +7,7 @@ function get_contents() {
     $file = file_get_contents("http://ip-api.com/xml/");
     $ip = simplexml_load_string($file);
     meteo($ip->lat, $ip->lon);
+ 
   }
 
 function meteo($lat, $lon)
@@ -18,8 +19,16 @@ function meteo($lat, $lon)
     $xsl->load("meteo.xsl");
     $proc = new XSLTProcessor;
     $proc->importStyleSheet($xsl);
-
+    echo '<html> <head> 
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="">
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+    </head><body><div class="leaflet-container leaflet-touch leaflet-retina leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" id="mapid">
+    </div>
+    <script src="js/carte.js"></script>';
     echo $proc->transformToXML($meteo);
+
+    echo "<body></html>";
 
 }
 
