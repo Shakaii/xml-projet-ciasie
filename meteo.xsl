@@ -6,7 +6,10 @@
 </xsl:template>
 
 <xsl:template match="echeance">
+    <div>
+    Heure <xsl:value-of select="@hour"/> :
     <xsl:apply-templates select="temperature"/>
+    </div>
 </xsl:template>
 
 <xsl:template match="temperature">
@@ -16,7 +19,7 @@
 <xsl:template match="level">
     <xsl:if test="@val='sol'">
         <xsl:variable name="temp" select="."/>
-        Temperature : <xsl:value-of select="$temp - 273.15"/> degrés celcius.
+        <xsl:value-of select="round($temp - 273.15)"/>°C.
     </xsl:if>   
 </xsl:template>
 
