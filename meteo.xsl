@@ -7,8 +7,10 @@
 
 <xsl:template match="echeance">
     <div>
-    Heure <xsl:value-of select="@hour"/> :
-    <xsl:apply-templates select="temperature"/>
+    <xsl:if test="@hour &lt; 27">
+        <xsl:value-of select="@hour - 3"/>-<xsl:value-of select="@hour"/>h :
+        <xsl:apply-templates select="temperature"/>
+    </xsl:if>
     </div>
 </xsl:template>
 
