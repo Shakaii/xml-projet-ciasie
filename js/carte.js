@@ -1,4 +1,5 @@
 let mymap;
+
 function showMap(lat,lon){
 mymap = L.map('mapid').setView([lat,lon], 13);
 
@@ -9,4 +10,8 @@ L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
 		id: 'mapbox.streets'
     }).addTo(mymap);
+}
+
+function addMarker(lat,lon,free){
+    	L.marker([lat, lon]).addTo(mymap).bindPopup("<b>"+free+" vélibs libres</b>");
 }
