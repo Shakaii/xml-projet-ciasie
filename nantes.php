@@ -10,9 +10,16 @@ function get_contents() {
  
   }
 
+  function datee() {
+    $Date=  date("Y-m-d");
+    return date('Y-m-d', strtotime($Date. ' - 2 days'));
+  }
+
 function getImage()
 {
-    $file = file_get_contents("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2019-01-01&api_key=kdlIh4yvdWnDv8ag5AYZpCrlYWU8dfU4V1fACMc0");
+    $str= "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=".datee()."&api_key=kdlIh4yvdWnDv8ag5AYZpCrlYWU8dfU4V1fACMc0";
+    $file = file_get_contents($str);
+    
     $ip = json_decode($file);
     return $ip->photos[2]->img_src;
 }
@@ -42,6 +49,7 @@ function route($lon, $lat)
     echo $str;
     echo "</script>";
     echo "<img src='".getImage()."'>";
+    echo datee();
 }
 
 get_contents();
