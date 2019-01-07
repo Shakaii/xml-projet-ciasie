@@ -15,3 +15,7 @@ L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 function addMarker(lat,lon,free){
     	L.marker([lat, lon]).addTo(mymap).bindPopup("<b>"+free+" vélibs libres</b>");
 }
+
+function addMarkerN(lat,lon,r){
+	L.marker([lat, lon]).addTo(mymap).bindPopup(r);
+}

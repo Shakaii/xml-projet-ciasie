@@ -2,8 +2,8 @@
 
 
 function get_contents() {
-    $opts = array('http' => array('proxy'=> 'tcp://www-cache:3128', 'request_fulluri'=> true));
-    $context = stream_context_create($opts);
+    //$opts = array('http' => array('proxy'=> 'tcp://www-cache:3128', 'request_fulluri'=> true));
+    //$context = stream_context_create($opts);
     $file = file_get_contents("http://ip-api.com/xml/",false, $context);
     $ip = simplexml_load_string($file);
     meteo($ip->lat, $ip->lon);
@@ -14,8 +14,8 @@ function meteo($lat, $lon)
 {
     $str = "http://www.infoclimat.fr/public-api/gfs/xml?_ll=".$lat.",".$lon."&_auth=ARsDFFIsBCZRfFtsD3lSe1Q8ADUPeVRzBHgFZgtuAH1UMQNgUTNcPlU5VClSfVZkUn8AYVxmVW0Eb1I2WylSLgFgA25SNwRuUT1bPw83UnlUeAB9DzFUcwR4BWMLYwBhVCkDb1EzXCBVOFQoUmNWZlJnAH9cfFVsBGRSPVs1UjEBZwNkUjIEYVE6WyYPIFJjVGUAZg9mVD4EbwVhCzMAMFQzA2JRMlw5VThUKFJiVmtSZQBpXGtVbwRlUjVbKVIuARsDFFIsBCZRfFtsD3lSe1QyAD4PZA%3D%3D&_c=19f3aa7d766b6ba91191c8be71dd1ab2";
     
-    $opts = array('http' => array('proxy'=> 'tcp://www-cache:3128', 'request_fulluri'=> true));
-    $context = stream_context_create($opts);
+    //$opts = array('http' => array('proxy'=> 'tcp://www-cache:3128', 'request_fulluri'=> true));
+    //$context = stream_context_create($opts);
     $file = file_get_contents($str,false,$context);
     $meteo = simplexml_load_string($file);
     $strVelib = "http://www.velostanlib.fr/service/carto";
